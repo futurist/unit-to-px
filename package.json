@@ -1,0 +1,25 @@
+{
+  "name": "unit-to-px",
+  "version": "1.0.0",
+  "description": "Convert any CSS unit (pt, em, rem, pc, in, mm, cm, vw...) to px, in browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/futurist/unit-to-px.git"
+  },
+  "keywords": [
+    "css",
+    "unit",
+    "convert",
+    "px"
+  ],
+  "author": "James Yang <jamesyang999@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/futurist/unit-to-px/issues"
+  },
+  "homepage": "https://github.com/futurist/unit-to-px#readme"
+}
