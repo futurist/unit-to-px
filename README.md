@@ -1,6 +1,9 @@
 # Unit To Px
 Convert any CSS unit (pt, em, rem, pc, in, mm, cm, vw...) to **px**, in **browser**
 
+[![npm](https://img.shields.io/npm/v/cssobj.svg "Version")](https://www.npmjs.com/package/cssobj)
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 # Install
 
 ### NPM
@@ -29,8 +32,7 @@ console.log(toPx('rem')) //16
 console.log(toPx('em'))  //14
 console.log(toPx('in'))  //96
 console.log(toPx('vh'))  //2.48
-console.log(toPx('??'))  //0
-
+console.log(toPx('??'))  //0 -> unknown unit always be 0!
 ```
 
 ### 2. Convert **px of length**
@@ -39,5 +41,6 @@ console.log(toPx('??'))  //0
 const toPx = require('unit-to-px')
 
 console.log(toPx('210mm'))  //793.6687499999999
+console.log(toPx('- 210 m m'))  //throw TypeError: Error parsing length
 ```
 

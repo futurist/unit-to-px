@@ -1,18 +1,25 @@
-function pxPerUnit (unit, sample) {
-  sample = sample || 100
-  var con = document.createElement('div')
+// cache con, el for reused
+var con, el
+// high sample will more accurate?
+var sample = 100
+
+function initElements () {
+  con = document.createElement('div')
   con.style.width = 0
   con.style.height = 0
   con.style.visibility = 'hidden'
   con.style.overflow = 'hidden'
 
-  var el = document.createElement('div')
-  el.style.width = sample + unit
+  el = document.createElement('div')
 
   con.appendChild(el)
+}
+
+function pxPerUnit (unit) {
+  if (!con) initElements()
+  el.style.width = sample + unit
   document.body.appendChild(con)
   var dimension = el.getBoundingClientRect()
-  el.parentNode.removeChild(el)
   con.parentNode.removeChild(con)
   return dimension.width / sample
 }
@@ -27,11 +34,11 @@ function toPx (length) {
     var unit = match[2]
     if (!unit) break
     var valid = true
+    val = val || 1
     break
   }
   if (!valid) throw new TypeError('Error parsing length')
-  var perUnit = pxPerUnit(unit)
-  return val ? perUnit * val : perUnit
+  return unit == 'px' ? val : pxPerUnit(unit) * val
 }
 
 module.exports = toPx
