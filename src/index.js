@@ -15,31 +15,26 @@ function initElements () {
   con.appendChild(el)
 }
 
-function pxPerUnit (unit) {
+function pxPerUnit (unit, element) {
   if (!con) initElements()
   el.style.width = sample + unit
-  document.body.appendChild(con)
+  ;(element || document.body).appendChild(con)
   var dimension = el.getBoundingClientRect()
   con.parentNode.removeChild(con)
   return dimension.width / sample
 }
 
-function toPx (length) {
+function toPx (length, element) {
   var unitRe = /^\s*([+-]?[\d\.]*)\s*(.*)\s*$/i
   var match = unitRe.exec(length)
-  while (1) {
-    if (!match || match.length < 3) break
-    var val = Number(match[1])
-    if (isNaN(val)) break
-    if(val === 0) break
+  if (match!=null && match.length > 2) {
+    var bare = match[1] === ''
+    var val = bare ? 1 : Number(match[1])
     var unit = match[2]
-    if (!unit) break
-    var valid = true
-    val = val || 1
-    break
+    var valid = !isNaN(val) && unit
   }
   if (!valid) throw new TypeError('Error parsing length')
-  return unit == 'px' ? val : pxPerUnit(unit) * val
+  return unit == 'px' ? val : pxPerUnit(unit, element) * val
 }
 
 module.exports = toPx

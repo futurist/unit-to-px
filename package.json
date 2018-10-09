@@ -4,7 +4,10 @@
   "description": "Convert any CSS unit (pt, em, rem, pc, in, mm, cm, vw...) to px, in browser",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha-headless-chrome -f ./test/test.html -o ./coverage/result.json -c ./coverage/coverage.json -w 801 -H 501 -a incognito -v",
+    "build": "rollup -c",
+    "preversion": "npm run build && npm run test",
+    "postversion": "git push --follow-tags"
   },
   "repository": {
     "type": "git",
@@ -21,5 +24,15 @@
   "bugs": {
     "url": "https://github.com/futurist/unit-to-px/issues"
   },
-  "homepage": "https://github.com/futurist/unit-to-px#readme"
+  "homepage": "https://github.com/futurist/unit-to-px#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "mocha-headless-chrome": "^2.0.1",
+    "mocha-teamcity-reporter": "^2.5.1",
+    "rollup": "^0.66.5",
+    "rollup-plugin-buble": "^0.19.4",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-node-resolve": "^3.4.0"
+  }
 }
