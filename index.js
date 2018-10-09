@@ -31,6 +31,7 @@ function toPx (length) {
     if (!match || match.length < 3) break
     var val = Number(match[1])
     if (isNaN(val)) break
+    if(val === 0) break
     var unit = match[2]
     if (!unit) break
     var valid = true
