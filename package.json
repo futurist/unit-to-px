@@ -1,6 +1,6 @@
 {
   "name": "unit-to-px",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Convert any CSS unit (pt, em, rem, pc, in, mm, cm, vw...) to px, in browser",
   "main": "index.js",
   "scripts": {
