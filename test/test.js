@@ -39,7 +39,37 @@ function parseUnit(str, out) {
     return out
 }
 
-var units = ['em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc']
+var units = [
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+    'em', 'ch', 'ex', 'rem', 'px', 'vw', 'vh', 'vmin', 'vmax', 'in', 'cm', 'mm', 'pt', 'pc',
+]
 
 var fontSizes = ['20px', '30px', '1em', '2in']
 
@@ -54,7 +84,7 @@ function testUnitsEmpirically(element, number) {
         var actual = unitToPx(number + units[i], element)
 
         // console.log(units[i], actual, expected)
-        assert.equal(true, almostEqual(actual, expected, 0.005, almostEqual.FLT_EPSILON),
+        assert.equal(true, almostEqual(actual, expected, 0.01, almostEqual.FLT_EPSILON),
             'testing: ' + units[i] + ' ' + actual + ' ~ ' + expected)
     }
     element.removeChild(testDiv)

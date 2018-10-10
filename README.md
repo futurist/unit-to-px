@@ -1,6 +1,7 @@
 # Unit To Px
 Convert any CSS unit (pt, em, rem, pc, in, mm, cm, vw...) to **px**, in **browser**
 
+[![Build Status](https://travis-ci.org/futurist/unit-to-px.svg?branch=master)](https://travis-ci.org/futurist/unit-to-px)
 [![npm](https://img.shields.io/npm/v/unit-to-px.svg "Version")](https://www.npmjs.com/package/unit-to-px)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 

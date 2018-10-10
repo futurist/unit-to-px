@@ -7,6 +7,7 @@ var sample = 100;
 
 function initElements () {
   con = document.createElement('div');
+  con.style.position = 'absolute';
   con.style.width = 0;
   con.style.height = 0;
   con.style.visibility = 'hidden';
